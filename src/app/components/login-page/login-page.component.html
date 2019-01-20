@@ -1,0 +1,21 @@
+<div *ngIf="!isSignedIn">
+    <label>
+      <b>Choose your name:</b>
+    </label>
+    <app-dropdown [dropdownName]="loginsDropdown" (valueChooseEvent)="receiveLogin($event)"></app-dropdown>
+    <label>
+      <b>Choose your password:</b>
+    </label>
+    <app-dropdown [dropdownName]="passwordsDropdown" (valueChooseEvent)="receivePassword($event)"></app-dropdown>
+    <button (click) = "sendValues()">
+      Submit
+    </button>
+</div>
+<div *ngIf="isSignedIn">
+  <label>
+    <b>Your name: {{login ? login : 'no value'}}</b>
+  </label>
+  <label>
+      <b>Your name: {{password ? password : 'no value'}}</b>
+  </label>
+</div>
